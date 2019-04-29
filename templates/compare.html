@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="jumbotron row">
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <div class="head">
+            <h1>{{title_info[0]}}</h1><br>
+            <img src="{{title_info[2]}}" alt="no flag">
+        </div>
+        <br>
+        <ul>
+            {% for row in info[0] %}
+            <li>
+                <b>{{ row[0]|capitalize }}:</b>
+               <!-- {% for var in row[1] %}
+                       {{ var|e }}
+               {% endfor %} -->
+                {{ ", ".join(row[1]).replace('\xa0', ' ') }}
+               
+            </li>
+            {% endfor %}
+        </ul>
+        
+        
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <div class="head">
+            <h1>{{title_info[1]}}</h1><br>
+            <img src="{{title_info[3]}}" alt="no flag">
+        </div>
+        <br>
+        <ul>
+            {% for row in info[1] %}
+            <li>
+                <b>{{ row[0]|capitalize }}:</b>
+                <!-- {% for var in row[1] %}
+                {{ var }}
+                {% endfor %} -->
+                {{ ", ".join(row[1]) }}
+        
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="jumbotron">
+        <ul>
+            {% for par in res[0] %}
+            <li>{{ par|safe }}</li>
+            {% endfor %}
+        </ul>
+        <br>
+        <ul>
+            {% for par2 in res[1] %}
+            <li>{{ par2|safe }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}
